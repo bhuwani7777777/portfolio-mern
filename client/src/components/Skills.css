@@ -1,0 +1,22 @@
+.skills {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.skill-card {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+.skill-card:hover {
+  transform: scale(1.05);
+}

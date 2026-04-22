@@ -1,0 +1,31 @@
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, #1e293b, #000);
+  text-align: center;
+  position: relative;
+}
+
+.hero-glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: #3b82f6;
+  filter: blur(120px);
+  opacity: 0.3;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+}
+.hero span {
+  color: #3b82f6;
+}
+
+.hero p {
+  margin-top: 10px;
+  color: #cbd5f5;
+}

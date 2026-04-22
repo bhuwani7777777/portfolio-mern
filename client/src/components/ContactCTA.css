@@ -1,0 +1,11 @@
+.cta {
+  padding: 80px;
+  text-align: center;
+}
+
+.cta button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #3b82f6;
+  border-radius: 8px;
+}
