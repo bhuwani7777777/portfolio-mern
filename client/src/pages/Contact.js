@@ -1,19 +1,14 @@
 import "./Contact.css";
+import Navbar from "../components/Navbar";
 
 function Contact() {
   return (
-    <div className="contact-container">
-
-      <h1>Contact Me</h1>
-
-      <form className="contact-form">
-        <input placeholder="Name" />
-        <input placeholder="Email" />
-        <textarea placeholder="Message"></textarea>
-        <button>Send Message</button>
-      </form>
-
-    </div>
+    <>
+      <Navbar />
+      <div className="contact">
+        <h1>Contact</h1>
+      </div>
+    </>
   );
 }
 

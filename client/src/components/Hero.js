@@ -1,4 +1,5 @@
 import "./Hero.css";
+import ScrollPlane from "../components/ScrollPlane";
 
 function Hero() {
   return (

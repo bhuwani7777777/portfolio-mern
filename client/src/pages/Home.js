@@ -1,83 +1,123 @@
 import "./Home.css";
+import Navbar from "../components/Navbar";
+import ScrollPlane from "../components/ScrollPlane";
+import profile from "../assets/profile.jpg";
 
 function Home() {
   return (
-    <div className="home-container">
+    <>
+      <Navbar />
+      <ScrollPlane />
 
-      {/* HERO SECTION */}
-      <section className="hero-section">
-        <div className="hero-glow"></div>
+      <div className="home-container">
 
-        <h1 className="hero-title fade-up">
-          Hi, I'm <span className="highlight">Bhuwani</span> 👋
-        </h1>
+        {/* 🔥 HERO */}
+        <section className="hero-section">
+          <div className="hero-glow"></div>
 
-        <p className="hero-subtitle fade-up">
-          Full Stack Developer (MERN) | AI Enthusiast  
-          Building modern, scalable web applications.
-        </p>
+          <div className="profile-container">
+            <img src={profile} alt="profile" className="profile-img" />
+          </div>
 
-        <div className="hero-buttons fade-up">
-          <button className="btn-main">View Projects</button>
-          <button className="btn-outline">Hire Me</button>
-        </div>
-      </section>
+          <h1 className="hero-title">
+            Hi, I'm <span>Bhuwani</span> 👋
+          </h1>
 
-      {/* SKILLS SECTION */}
-      <section className="skills-section fade-up">
-        <h2 className="section-title">Tech Stack</h2>
+          <p className="hero-subtitle">
+            Full Stack Developer (MERN) | AI Enthusiast <br />
+            I build modern, scalable web applications.
+          </p>
 
-        <div className="skills-grid">
-          {[
-            "React", "Node.js", "MongoDB", "Express",
-            "JavaScript", "C#", ".NET", "MySQL"
-          ].map((skill, i) => (
-            <div key={i} className="skill-card">
-              {skill}
+          <div className="hero-buttons">
+            <button className="btn-main">View Projects</button>
+            <button className="btn-outline">Download CV</button>
+          </div>
+
+          {/* 🌐 SOCIAL */}
+          <div className="social-icons">
+            <i className="fab fa-github"></i>
+            <i className="fab fa-linkedin"></i>
+            <i className="fab fa-instagram"></i>
+          </div>
+        </section>
+
+        {/* 📊 STATS */}
+        <section className="stats-section">
+          <div className="stat-card">
+            <h2>10+</h2>
+            <p>Projects</p>
+          </div>
+          <div className="stat-card">
+            <h2>2+</h2>
+            <p>Years Experience</p>
+          </div>
+          <div className="stat-card">
+            <h2>100%</h2>
+            <p>Client Satisfaction</p>
+          </div>
+        </section>
+
+        {/* 🧠 SKILLS */}
+        <section className="skills-section">
+          <h2 className="section-title">Tech Stack</h2>
+          <div className="skills-grid">
+            {["React","Node.js","MongoDB","Express","C#",".NET","MySQL"].map((s,i) => (
+              <div key={i} className="skill-card">{s}</div>
+            ))}
+          </div>
+        </section>
+
+        {/* 💼 SERVICES */}
+        <section className="services-section">
+          <h2 className="section-title">Services</h2>
+
+          <div className="services-grid">
+            <div className="service-card">
+              <h3>Web Development</h3>
+              <p>Full-stack MERN applications</p>
             </div>
-          ))}
-        </div>
-      </section>
 
-      {/* PROJECTS SECTION */}
-      <section className="projects-section fade-up">
-        <h2 className="section-title">Projects</h2>
-
-        <div className="projects-grid">
-          {["Vehicle Rental", "AI Chatbot", "Portfolio"].map((p, i) => (
-            <div key={i} className="project-card">
-              <h3>{p}</h3>
-              <p>Modern full-stack application with clean UI</p>
-
-              <button className="btn-main small-btn">
-                View Project
-              </button>
+            <div className="service-card">
+              <h3>UI/UX Design</h3>
+              <p>Modern, user-friendly interfaces</p>
             </div>
-          ))}
-        </div>
-      </section>
 
-      {/* CTA SECTION */}
-      <section className="cta-section">
-        <div className="cta-glow"></div>
+            <div className="service-card">
+              <h3>API Development</h3>
+              <p>Secure backend & REST APIs</p>
+            </div>
+          </div>
+        </section>
 
-        <h2 className="cta-title">
-          Let’s Build Something Amazing 🚀
-        </h2>
+        {/* 💼 PROJECTS */}
+        <section className="projects-section">
+          <h2 className="section-title">Featured Projects</h2>
 
-        <p className="cta-text">
-          I'm available for freelance & full-time roles.
-        </p>
+          <div className="projects-grid">
+            {["Vehicle Rental","AI Chatbot","Portfolio"].map((p,i) => (
+              <div key={i} className="project-card">
+                <h3>{p}</h3>
+                <p>Modern full-stack application</p>
+                <button className="btn-main small-btn">View</button>
+              </div>
+            ))}
+          </div>
+        </section>
 
-        <button className="btn-main">Contact Me</button>
-      </section>
+        {/* 📞 CTA */}
+        <section className="cta-section">
+          <h2>Let’s Build Something Amazing 🚀</h2>
+          <p>I’m open for freelance & full-time roles</p>
+          <button className="btn-main">Contact Me</button>
+        </section>
 
-      {/* FOOTER */}
-      <footer className="footer">
-        © 2026 Bhuwani Bikram Nembang — Full Stack Developer
-      </footer>
+        {/* 🔻 FOOTER */}
+        <footer className="footer">
+          © 2026 Bhuwani — Full Stack Developer
+        </footer>
 
-    </div>
+      </div>
+    </>
   );
 }
 
