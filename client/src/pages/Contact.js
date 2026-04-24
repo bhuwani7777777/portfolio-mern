@@ -51,10 +51,10 @@ function Contact() {
             <a href="https://github.com/bhuwani7777777" target="_blank" rel="noreferrer">
               GitHub
             </a>
-            <a href="#" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/in/bhuwani-nembang-277873272/" target="_blank" rel="noreferrer">
               LinkedIn
             </a>
-            <a href="#" target="_blank" rel="noreferrer">
+            <a href="https://www.instagram.com/bhanunembang/" target="_blank" rel="noreferrer">
               Instagram
             </a>
           </div>
