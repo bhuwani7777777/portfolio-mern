@@ -3,54 +3,91 @@ import Navbar from "../components/Navbar";
 import ScrollPlane from "../components/ScrollPlane";
 import profile from "../assets/profile.jpg";
 
+import { motion } from "framer-motion";
+import CountUp from "react-countup";
+import Particles from "react-tsparticles";
+import { loadSlim } from "tsparticles-slim";
+
 function Home() {
+  const particlesInit = async (engine) => {
+    await loadSlim(engine);
+  };
+
   return (
     <>
       <Navbar />
       <ScrollPlane />
 
+      {/* 🌌 PARTICLE BACKGROUND */}
+      <Particles
+        id="tsparticles"
+        init={particlesInit}
+        options={{
+          background: { color: "#0f172a" },
+          particles: {
+            number: { value: 30 },
+            size: { value: 2 },
+            move: { speed: 1 },
+            links: {
+              enable: true,
+              color: "#3b82f6",
+              opacity: 0.2,
+            },
+          },
+        }}
+      />
+
       <div className="home-container">
 
         {/* 🔥 HERO */}
         <section className="hero-section">
-          <div className="hero-glow"></div>
-
-          <div className="profile-container">
+          <motion.div
+            className="hero-content"
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
             <img src={profile} alt="profile" className="profile-img" />
-          </div>
 
-          <h1 className="hero-title">
-            Hi, I'm <span>Bhuwani</span> 👋
-          </h1>
+            <h1 className="hero-title">
+              Hi, I'm <span>Bhuwani Bikram Nembang</span> 👋
+            </h1>
 
-          <p className="hero-subtitle">
-            Full Stack Developer (MERN) | AI Enthusiast <br />
-            I build modern, scalable web applications.
-          </p>
+            <p className="hero-subtitle">
+              Full-Stack Developer | React • Node.js • MySQL <br />
+              Building scalable & modern web applications.
+            </p>
 
-          <div className="hero-buttons">
-            <button className="btn-main">View Projects</button>
-            <button className="btn-outline">Download CV</button>
-          </div>
+            <div className="hero-buttons">
+              <motion.button whileHover={{ scale: 1.1 }} className="btn-main">
+                🚀 View Projects
+              </motion.button>
 
-          {/* 🌐 SOCIAL */}
-          <div className="social-icons">
-            <i className="fab fa-github"></i>
-            <i className="fab fa-linkedin"></i>
-            <i className="fab fa-instagram"></i>
-          </div>
+              <motion.button whileHover={{ scale: 1.1 }} className="btn-outline">
+                📄 Download CV
+              </motion.button>
+            </div>
+
+            <div className="social-icons">
+              <i className="fab fa-github"></i>
+              <i className="fab fa-linkedin"></i>
+              <i className="fab fa-instagram"></i>
+            </div>
+          </motion.div>
         </section>
 
         {/* 📊 STATS */}
         <section className="stats-section">
           <div className="stat-card">
-            <h2>10+</h2>
+            <h2><CountUp end={10} duration={2} />+</h2>
             <p>Projects</p>
           </div>
+
           <div className="stat-card">
-            <h2>2+</h2>
+            <h2><CountUp end={2} duration={2} />+</h2>
             <p>Years Experience</p>
           </div>
+
           <div className="stat-card">
             <h2>100%</h2>
             <p>Client Satisfaction</p>
@@ -60,32 +97,20 @@ function Home() {
         {/* 🧠 SKILLS */}
         <section className="skills-section">
           <h2 className="section-title">Tech Stack</h2>
+
           <div className="skills-grid">
-            {["React","Node.js","MongoDB","Express","C#",".NET","MySQL"].map((s,i) => (
-              <div key={i} className="skill-card">{s}</div>
+            {[
+              "React.js",
+              "Node.js",
+              "Express.js",
+              "MySQL",
+              "MongoDB",
+              "C#",
+              ".NET",
+              "REST APIs",
+            ].map((skill, i) => (
+              <div key={i} className="skill-card">{skill}</div>
             ))}
-          </div>
-        </section>
-
-        {/* 💼 SERVICES */}
-        <section className="services-section">
-          <h2 className="section-title">Services</h2>
-
-          <div className="services-grid">
-            <div className="service-card">
-              <h3>Web Development</h3>
-              <p>Full-stack MERN applications</p>
-            </div>
-
-            <div className="service-card">
-              <h3>UI/UX Design</h3>
-              <p>Modern, user-friendly interfaces</p>
-            </div>
-
-            <div className="service-card">
-              <h3>API Development</h3>
-              <p>Secure backend & REST APIs</p>
-            </div>
           </div>
         </section>
 
@@ -94,26 +119,50 @@ function Home() {
           <h2 className="section-title">Featured Projects</h2>
 
           <div className="projects-grid">
-            {["Vehicle Rental","AI Chatbot","Portfolio"].map((p,i) => (
-              <div key={i} className="project-card">
-                <h3>{p}</h3>
-                <p>Modern full-stack application</p>
+            {[
+              {
+                name: "Vehicle Rental System",
+                desc: "Booking, billing & admin dashboard",
+              },
+              {
+                name: "AI Chatbot",
+                desc: "Smart chatbot using AI APIs",
+              },
+              {
+                name: "Portfolio Website",
+                desc: "Modern personal branding site",
+              },
+            ].map((project, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ scale: 1.05 }}
+                className="project-card"
+              >
+                <h3>{project.name}</h3>
+                <p>{project.desc}</p>
                 <button className="btn-main small-btn">View</button>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>
 
         {/* 📞 CTA */}
         <section className="cta-section">
-          <h2>Let’s Build Something Amazing 🚀</h2>
-          <p>I’m open for freelance & full-time roles</p>
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+          >
+            Let’s Build Something Amazing 🚀
+          </motion.h2>
+
+          <p>I’m open for freelance & full-time opportunities</p>
+
           <button className="btn-main">Contact Me</button>
         </section>
 
         {/* 🔻 FOOTER */}
         <footer className="footer">
-          © 2026 Bhuwani — Full Stack Developer
+          © 2026 Bhuwani Bikram Nembang
         </footer>
 
       </div>

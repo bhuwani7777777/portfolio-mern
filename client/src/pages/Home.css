@@ -1,168 +1,163 @@
-/* 🌌 BASE */
-.home-container {
-  background: radial-gradient(circle at top, #0f172a, #000);
-  color: white;
-  font-family: 'Poppins', sans-serif;
-  padding-top: 80px;
+/* 🌍 GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-/* HERO */
+body {
+  background: #0f172a;
+  color: #fff;
+}
+
+/* 🌌 PARTICLES */
+#tsparticles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* 🌟 HERO */
 .hero-section {
   height: 100vh;
-  text-align: center;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
-}
-
-.hero-glow {
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  background: #3b82f6;
-  filter: blur(120px);
-  opacity: 0.3;
+  text-align: center;
 }
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: 2.8rem;
 }
+
 .hero-title span {
   color: #3b82f6;
 }
 
 .hero-subtitle {
-  color: #cbd5f5;
-  margin-top: 10px;
-  max-width: 600px;
+  margin: 20px 0;
+  opacity: 0.8;
 }
 
-/* PROFILE */
-.profile-container {
-  width: 140px;
-  height: 140px;
-  margin-bottom: 20px;
-}
-
+/* 👤 PROFILE */
 .profile-img {
-  width: 100%;
+  width: 140px;
   border-radius: 50%;
+  margin-bottom: 20px;
+  box-shadow: 0 0 25px #3b82f6;
 }
 
-/* BUTTONS */
+/* 🔘 BUTTONS */
 .hero-buttons {
-  margin-top: 20px;
-  display: flex;
-  gap: 15px;
+  margin: 20px 0;
 }
 
 .btn-main {
-  padding: 10px 20px;
-  background: linear-gradient(135deg,#3b82f6,#9333ea);
-  border-radius: 8px;
+  padding: 12px 24px;
+  margin: 5px;
+  border-radius: 30px;
   border: none;
-  color: white;
+  background: linear-gradient(45deg, #3b82f6, #9333ea);
+  color: #fff;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-main:hover {
+  transform: translateY(-5px);
 }
 
 .btn-outline {
-  padding: 10px 20px;
-  border: 1px solid white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: 2px solid #3b82f6;
   background: transparent;
-  color: white;
-  border-radius: 8px;
-}
-
-/* SOCIAL */
-.social-icons {
-  margin-top: 20px;
-}
-.social-icons i {
-  margin: 0 10px;
-  font-size: 20px;
+  color: #3b82f6;
   cursor: pointer;
 }
 
-/* STATS */
+/* 🌐 SOCIAL */
+.social-icons i {
+  margin: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* 📊 STATS */
 .stats-section {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  padding: 60px;
+  gap: 30px;
+  padding: 60px 20px;
 }
 
 .stat-card {
-  background: rgba(255,255,255,0.08);
-  padding: 20px;
-  border-radius: 10px;
+  padding: 25px;
+  border-radius: 15px;
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.05);
 }
 
-/* SECTIONS */
-.section-title {
-  font-size: 2.5rem;
+/* 🧠 SKILLS */
+.skills-section {
   text-align: center;
+  padding: 60px;
 }
 
-.skills-section,
-.services-section,
-.projects-section {
-  padding: 80px 20px;
-  text-align: center;
-}
-
-/* SKILLS */
 .skills-grid {
   display: flex;
-  gap: 15px;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 15px;
 }
 
 .skill-card {
-  background: rgba(255,255,255,0.08);
   padding: 10px 20px;
-  border-radius: 10px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
 }
 
-/* SERVICES */
-.services-grid {
+/* 💼 PROJECTS */
+.projects-section {
+  text-align: center;
+  padding: 60px;
+}
+
+.projects-grid {
   display: flex;
-  gap: 20px;
   justify-content: center;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
-.service-card {
-  background: rgba(255,255,255,0.08);
-  padding: 20px;
-  border-radius: 12px;
-  width: 250px;
-}
-
-/* PROJECTS */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-  gap: 20px;
-}
-
 .project-card {
-  background: rgba(255,255,255,0.08);
   padding: 20px;
-  border-radius: 12px;
+  width: 250px;
+  border-radius: 15px;
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.05);
 }
 
-/* CTA */
+/* 📞 CTA */
 .cta-section {
   text-align: center;
   padding: 80px;
+  background: linear-gradient(45deg, #3b82f6, #9333ea);
 }
 
-/* FOOTER */
+/* 🔻 FOOTER */
 .footer {
   text-align: center;
   padding: 20px;
-  color: #94a3b8;
+  opacity: 0.7;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 768px) {
+  .stats-section {
+    flex-direction: column;
+    align-items: center;
+  }
 }

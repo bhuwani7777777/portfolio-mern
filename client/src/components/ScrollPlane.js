@@ -2,22 +2,36 @@ import { useEffect, useState } from "react";
 import "./ScrollPlane.css";
 
 function ScrollPlane() {
-  const [scrollY, setScrollY] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
+    const handleScroll = () => {
+      const totalHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+
+      const progress = window.scrollY / totalHeight;
+      setScrollProgress(progress);
+    };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <div className="plane-container">
-      <div className="plane-line"></div>
+      {/* ✨ Vertical Progress Line */}
+      <div className="plane-line">
+        <div
+          className="plane-progress"
+          style={{ height: `${scrollProgress * 100}%` }}
+        ></div>
+      </div>
 
+      {/* ✈️ Plane */}
       <div
         className="plane"
         style={{
-          transform: `translate(-50%, ${scrollY * 0.4}px)`
+          top: `${scrollProgress * 100}%`
         }}
       >
         ✈️

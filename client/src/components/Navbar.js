@@ -5,11 +5,16 @@ import "./Navbar.css";
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [progress, setProgress] = useState(0);
 
-  // 🔥 Detect scroll
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 40);
+
+      const totalHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const scrollProgress = (window.scrollY / totalHeight) * 100;
+      setProgress(scrollProgress);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -17,44 +22,55 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
-
-      {/* 🔰 LOGO */}
-      <div className="logo">
-        Bhuwani<span>.dev</span>
-      </div>
-
-      {/* 📱 HAMBURGER */}
+    <>
+      {/* 🔥 SCROLL PROGRESS BAR */}
       <div
-        className={`hamburger ${menuOpen ? "active" : ""}`}
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+        className="scroll-progress"
+        style={{ width: `${progress}%` }}
+      ></div>
 
-      {/* 🔗 NAV LINKS */}
-      <div className={`nav-links ${menuOpen ? "open" : ""}`}>
+      <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
 
-        <NavLink to="/" end onClick={() => setMenuOpen(false)}>
-          Home
-        </NavLink>
+        {/* 🔰 LOGO */}
+        <div className="logo">
+          Bhuwani<span>.dev</span>
+        </div>
 
-        <NavLink to="/about" onClick={() => setMenuOpen(false)}>
-          About
-        </NavLink>
+        {/* 📱 HAMBURGER */}
+        <div
+          className={`hamburger ${menuOpen ? "active" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
 
-        <NavLink to="/projects" onClick={() => setMenuOpen(false)}>
-          Projects
-        </NavLink>
+        {/* 🔗 NAV LINKS */}
+        <div className={`nav-links ${menuOpen ? "open" : ""}`}>
 
-        <NavLink to="/contact" onClick={() => setMenuOpen(false)}>
-          Contact
-        </NavLink>
+          <NavLink to="/" end onClick={() => setMenuOpen(false)}>
+            Home
+          </NavLink>
 
-      </div>
-    </nav>
+          <NavLink to="/about" onClick={() => setMenuOpen(false)}>
+            About
+          </NavLink>
+
+          <NavLink to="/projects" onClick={() => setMenuOpen(false)}>
+            Projects
+          </NavLink>
+
+          <NavLink to="/contact" onClick={() => setMenuOpen(false)}>
+            Contact
+          </NavLink>
+
+          {/* 🔥 PREMIUM CTA */}
+          <button className="nav-btn">Hire Me</button>
+
+        </div>
+      </nav>
+    </>
   );
 }
 
